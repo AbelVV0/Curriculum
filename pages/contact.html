@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONO-SENDAI 7 // HARDWARE UPLINK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/hardware-deck.css">
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen w-full flex items-center justify-center p-2 sm:p-6 select-none bg-[#141a17]">
+  
+  <!-- Chasis Metálico Modular -->
+  <div class="rack-chassis w-full max-w-[1550px] bg-[#5a635c] border-4 border-[#222925] p-3 sm:p-5 flex flex-col gap-3 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
+    
+    <!-- Header del Chasis: ONO-SENDAI CYBERSPACE 7 & KANJI DE REBELIÓN -->
+    <div class="flex justify-between items-center px-2 border-b-2 border-[#3b453e] pb-2">
+      <div class="screw"></div>
+      <div class="flex flex-wrap items-center gap-4 text-[#202924] font-mono">
+        <div class="text-lg sm:text-2xl font-bold tracking-widest text-[#151c18] flex items-center gap-2">
+          <span>ONO-SENDAI CYBERSPACE 7</span>
+          <span class="font-jp text-base sm:text-xl text-[#8effb1] bg-[#1a2b20] px-2 py-0.5 border border-[#3f634b] font-bold">
+            【反乱・反逆の電子網】
+          </span>
+        </div>
+        <span class="text-xs font-bold opacity-75 hidden md:inline">MIL-SPEC CYBERDECK // DECK_ID: OS-7704</span>
+      </div>
+      <div class="screw"></div>
+    </div>
+
+    <!-- PANEL 1: MONITOR DE TELEMETRÍA, ONDAS Y DUMP DEL CRACKME DE CRUEHEAD -->
+    <div class="rack-unit bg-[#0d1410] border-4 border-[#333f38] p-3 sm:p-4 rounded-sm flex flex-col gap-3 relative">
+      <div class="flex flex-wrap justify-between items-start border-b border-[#294234] pb-2">
+        <div>
+          <div class="text-3xl sm:text-4xl font-bold tracking-widest text-[#7effa2] flex items-center gap-3">
+            <span class="glitch-hardware" data-text="DEBUG // DISASSEMBLY CORE">DEBUG // DISASSEMBLY CORE</span>
+            <span class="text-lg sm:text-xl font-jp text-[#46b367]">【逆コンパイル】</span>
+          </div>
+          <div class="text-xs sm:text-sm font-mono text-[#57946c]">IDA_PRO / OLLYDBG DUMP // TARGET: CRACKME.EXE (CRUEHEAD v1.0)</div>
+        </div>
+
+        <!-- Nixies & Estado -->
+        <div class="flex items-center gap-2">
+          <div class="nixie-tube">0</div>
+          <div class="nixie-tube">7</div>
+          <div class="nixie-tube">F</div>
+          <div class="nixie-tube">A</div>
+          <div class="ml-3 text-right font-mono text-xs text-[#7effa2]">
+            <div class="animate-pulse">PE_STATUS: DUMPED</div>
+            <div class="font-jp text-[10px] text-[#46b367]">逆アセンブル完了</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid: Hex Dump / Cruehead Code / Oscilloscope -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 min-h-[220px]">
+        
+        <!-- Cruehead Crackme x86 Disassembly Dump (6 Cols) -->
+        <div class="lg:col-span-6 border border-[#294234] bg-[#050a07] p-2 font-mono text-xs text-[#489965] overflow-hidden leading-tight flex flex-col justify-between">
+          <div class="text-[#7effa2] border-b border-[#1b2b22] pb-1 flex justify-between">
+            <span>[CRUEHEAD_CRACKME.ASM]</span>
+            <span class="text-yellow-400">EP: 0x00401000</span>
+          </div>
+          <div class="my-1 text-[#85e6a3] space-y-0.5">
+            00401243 &gt; CALL 00401340 ; GetDlgItemTextA (Name)<br>
+            00401248 &gt; CMP EAX, 04 ; Check strlen(Name) &gt;= 4<br>
+            0040124B &gt; JB SHORT 004012AA ; Jump if below (Invalid)<br>
+            00401250 &gt; MOV BL, BYTE PTR DS:[ESI] ; Keygen Routine Loop<br>
+            00401258 &gt; XOR EAX, 5A454C48 ; Magic Constant XOR<br>
+            00401262 &gt; CALL 0040137C ; Check Serial Algorithm<br>
+            00401267 &gt; TEST EAX, EAX ; Verify validation flag<br>
+            00401269 &gt; JNZ SHORT 00401290 ; <span class="text-yellow-300 font-bold">SUCCESS &gt; "Great work, mate!"</span>
+          </div>
+          <div class="text-[10px] text-right text-yellow-500">ICE_STATUS: CRACKED / BYPASS_ACTIVE</div>
+        </div>
+
+        <!-- Analizador de Ondas & Telemetría (6 Cols) -->
+        <div class="lg:col-span-6 border border-[#294234] bg-[#050a07] p-2 flex flex-col justify-between font-mono text-xs text-[#7effa2]">
+          <div class="border-b border-[#1b2b22] pb-1 flex justify-between">
+            <span>SIGNAL ANALYZER // ONO-SENDAI 7</span>
+            <span class="font-jp text-[10px]">信号波形</span>
+          </div>
+          <div class="space-y-1 my-auto">
+            <div class="flex justify-between text-yellow-300"><span>CARRIER (442MHz):</span> <span>∿∿∿∿∿∿∿∿ LOCKED</span></div>
+            <div class="flex justify-between text-cyan-300"><span>NEURAL FEED (STRAYLIGHT):</span> <span>∿∿∿∿∿∿ SYNC 99.8%</span></div>
+            <div class="flex justify-between text-emerald-400"><span>WINTERMUTE UPLINK:</span> <span>∿∿∿∿ DECRYPTED</span></div>
+          </div>
+          <div class="font-jp text-xs text-right border-t border-[#1b2b22] pt-1 text-[#46b367]">
+            反逆のノード：テシエ・アシュプールの防壁を突破せよ
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+
+    <!-- PANEL 3: FORMULARIO DE TRANSMISIÓN DIRECTA A TU CORREO + ENLACES -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+      
+      <!-- Transmisión de Correo Directo (8 Cols) -->
+      <div class="lg:col-span-8 rack-unit bg-[#232c27] border-4 border-[#141a17] p-4 text-[#7effa2] flex flex-col justify-between">
+        <div class="border-b border-[#34453c] pb-2 mb-3 flex justify-between items-center font-mono">
+          <div class="font-bold text-white text-base sm:text-lg flex items-center gap-2">
+            <span>DIRECT COMMS // ENCRYPTED DISPATCH</span>
+            <span class="font-jp text-xs text-[#46b367]">【電子メール送信】</span>
+          </div>
+          <span class="text-xs opacity-75">PORT: SMTP // 465</span>
+        </div>
+
+        <!-- Formulario configurado con tu correo -->
+        <form action="https://formsubmit.co/vasquezabel211@gmail.com" method="POST" class="space-y-3 text-sm font-mono">
+          <!-- Opciones antispam de FormSubmit -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="[ONO-SENDAI UPLINK] Mensaje desde Portfolio">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-[#46b367] mb-1">CALLSIGN / TU NOMBRE // 送信者名:</label>
+              <input type="text" name="name" required placeholder="ej. Case / Wintermute" class="w-full bg-[#0d1410] border border-[#3f5247] p-2 text-[#7effa2] focus:outline-none focus:border-[#7effa2]">
+            </div>
+            <div>
+              <label class="block text-xs text-[#46b367] mb-1">RETURN ADDRESS / TU CORREO // 返信用アドレス:</label>
+              <input type="email" name="email" required placeholder="tu-email@dominio.com" class="w-full bg-[#0d1410] border border-[#3f5247] p-2 text-[#7effa2] focus:outline-none focus:border-[#7effa2]">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-[#46b367] mb-1">PAYLOAD / MENSAJE // 本文:</label>
+            <textarea name="message" rows="3" required placeholder="Ingresa la transmisión cifrada aquí..." class="w-full bg-[#0d1410] border border-[#3f5247] p-2 text-[#7effa2] focus:outline-none focus:border-[#7effa2]"></textarea>
+          </div>
+
+          <div class="flex flex-wrap justify-between items-center gap-2 pt-1">
+            <span class="text-[11px] opacity-70">RECEPTOR: vasquezabel211@gmail.com</span>
+            <button type="submit" class="hardware-btn px-6 py-2 bg-[#17211b] border-2 border-[#7effa2] text-white font-bold hover:bg-[#7effa2] hover:text-black transition">
+              TRANSMIT_PACKET [送信] 🡥
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Links Rápidos de Identidad (4 Cols) -->
+      <div class="lg:col-span-4 flex flex-col gap-3">
+        
+        <div class="rack-unit bg-[#232c27] border-4 border-[#141a17] p-3 text-[#7effa2] flex flex-col justify-between flex-grow">
+          <div class="border-b border-[#34453c] pb-1 flex justify-between text-xs font-mono">
+            <span>COMM NODE // 01</span>
+            <span class="font-jp text-[10px]">ソースコード</span>
+          </div>
+          <div class="my-2">
+            <div class="text-base font-bold text-white">GITHUB ARCHIVE</div>
+            <p class="text-[11px] opacity-75 font-mono">Repositorios, scripts de análisis de binarios y arquitecturas backend.</p>
+          </div>
+          <a href="https://github.com/ShilohOsiris" target="_blank" class="hardware-btn block text-center py-1.5 bg-[#17211b] border border-[#7effa2] text-xs font-mono hover:bg-[#7effa2] hover:text-black transition">
+            CONNECT_GITHUB 🡥
+          </a>
+        </div>
+
+        <div class="rack-unit bg-[#232c27] border-4 border-[#141a17] p-3 text-[#7effa2] flex flex-col justify-between flex-grow">
+          <div class="border-b border-[#34453c] pb-1 flex justify-between text-xs font-mono">
+            <span>COMM NODE // 02</span>
+            <span class="font-jp text-[10px]">連絡先</span>
+          </div>
+          <div class="my-2">
+            <div class="text-base font-bold text-white">LINKEDIN UPLINK</div>
+            <p class="text-[11px] opacity-75 font-mono">Canal profesional para contacto directo y colaboraciones.</p>
+          </div>
+          <a href="https://www.linkedin.com/in/abel-vasquez-174bb0214/" target="_blank" class="hardware-btn block text-center py-1.5 bg-[#17211b] border border-[#7effa2] text-xs font-mono hover:bg-[#7effa2] hover:text-black transition">
+            CONNECT_LINKEDIN 🡥
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Navegación Inferior -->
+    <div class="flex flex-wrap justify-between items-center px-2 pt-2 border-t-2 border-[#3b453e]">
+      <div class="screw"></div>
+      <nav class="flex gap-4 sm:gap-8 font-mono text-sm sm:text-base text-[#1b241f] font-bold">
+        <a href="../index.html" class="hover:text-black">[1] DOSSIER</a>
+        <a href="projects.html" class="hover:text-black">[2] CONSTRUCTS</a>
+        <a href="contact.html" class="text-[#7effa2] bg-[#141a17] px-3 py-0.5 rounded border border-[#3f5247]">[3] ONO-SENDAI UPLINK</a>
+      </nav>
+      <div class="screw"></div>
+    </div>
+
+  </div>
+
+  <script src="../js/terminal.js"></script>
+</body>
+</html>
