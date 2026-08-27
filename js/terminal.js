@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (e.key === '1') window.location.href = `${rootPath}index.html`;
     if (e.key === '2') window.location.href = `${pagesPath}projects.html`;
-    if (e.key === '3') window.location.href = `${pagesPath}contact.html`;
+    if (e.key === '3') window.location.href = `${pagesPath}manufacturing.html`;
+    if (e.key === '4') window.location.href = `${pagesPath}manifesto.html`;
+    if (e.key === '5') window.location.href = `${pagesPath}contact.html`;
   });
 });

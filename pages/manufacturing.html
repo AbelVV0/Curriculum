@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TZC // TECH-PACK SCHEMATICS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/manufacturing.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="crt-screen min-h-screen w-full flex items-center justify-center p-2 sm:p-6 select-text">
+  <div class="matrix-lines"></div>
+  <div class="crt-noise"></div>
+
+  <div class="matrix-shell w-full max-w-[1550px] min-h-[92vh] bg-[#030804]/95 border-2 sm:border-4 border-[#00ff66] p-4 sm:p-8 flex flex-col justify-between relative shadow-[0_0_50px_rgba(0,255,102,0.2)]">
+    
+    <!-- Top System Diagnostic Bar -->
+    <header class="border-b-2 sm:border-b-4 border-[#00ff66] pb-4 mb-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <div class="text-3xl sm:text-5xl font-bold tracking-widest text-[#d4ffd4] flex items-center gap-2">
+            <span class="glitch-text" data-text="TECH-PACK SCHEMATICS">TECH-PACK SCHEMATICS</span>
+            <span class="text-xl sm:text-2xl font-jp opacity-80 text-[#00ff66]">【製造仕様書】</span>
+          </div>
+          <div class="text-base sm:text-xl font-mono text-[#00ff66] tracking-wider mt-1">
+            SPRAWL ENGINEERING INDEX // DECONSTRUCTED SPEC_SHEET
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-base sm:text-xl font-mono">
+          <div class="border border-[#00ff66] px-3 py-1 bg-[#081409]">
+            <span class="opacity-70">CORE_ENGINE:</span> <span class="glitch-text text-white font-bold" data-text="DECONSTRUCT_v1">DECONSTRUCT_v1</span>
+          </div>
+          <div class="text-right">
+            <div>NODE: <span class="text-[#00ff66]">04 // TECH_PACK</span></div>
+            <div class="text-xs opacity-50 font-jp">構造解析 // クロック</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex flex-wrap gap-4 sm:gap-8 mt-5 pt-3 border-t border-[#133817] text-lg sm:text-2xl">
+        <a href="../index.html" class="nav-matrix">[ 01 // 経歴 DOSSIER ]</a>
+        <a href="projects.html" class="nav-matrix">[ 02 // 計画 CONSTRUCTS ]</a>
+        <a href="manufacturing.html" class="nav-matrix active-matrix">[ 03 // 設計 TECH_PACK ]</a>
+        <a href="manifesto.html" class="nav-matrix">[ 04 // 機密 MANIFESTO ]</a>
+        <a href="contact.html" class="nav-matrix">[ 05 // 通信 CONTACT ]</a>
+      </nav>
+    </header>
+
+    <!-- Content (Grid idéntico de 12 columnas) -->
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
+      
+      <!-- Columna Lateral Izquierda (4 Columnas) -->
+      <section class="lg:col-span-4 flex flex-col gap-5">
+        <div class="border-2 border-[#00ff66] p-3 bg-[#081409] flex flex-col items-center justify-between min-h-[300px]">
+          <div class="w-full flex justify-between text-sm sm:text-base border-b border-[#133817] pb-1">
+            <span>CIRCUIT_BUS // 配線図</span>
+            <span class="glitch-text text-[#00ff66]" data-text="SCHEM_V1">SCHEM_V1</span>
+          </div>
+          <div class="w-full my-3 flex-grow flex flex-col items-center justify-center p-4 border border-[#133817] bg-[#020502] text-center">
+            <pre id="layer-ascii" class="text-xs sm:text-sm font-mono text-[#00ff66] leading-relaxed">
++------------------------------------+
+|  [ESP32 D1] <---> [LILYPAD MATRIX] |
+|       |                 |          |
+|  [LiPo 3.7V] <---- [BUSBUS_DATA]   |
++------------------------------------+
+            </pre>
+          </div>
+          <div class="w-full text-xs sm:text-sm flex justify-between opacity-80 font-mono">
+            <span>MODULE: REMOVABLE</span>
+            <span>SNAP_BUS: CONDUCTIVE</span>
+          </div>
+        </div>
+
+        <div class="border-2 border-[#00ff66] p-4 bg-[#081409] text-base sm:text-lg font-mono space-y-2">
+          <div class="text-lg font-bold border-b border-[#133817] pb-1 text-[#d4ffd4] flex justify-between">
+            <span>HARDWARE SPEC</span>
+            <span class="font-jp text-sm text-[#00ff66]">基板仕様: 正常</span>
+          </div>
+          <div class="flex justify-between"><span>MCU:</span> <span class="text-white font-bold">ESP32 (Wi-Fi/BT)</span></div>
+          <div class="flex justify-between"><span>POWER DRAW:</span> <span class="text-[#00ff66]">3.7V / 500mAh LiPo</span></div>
+        </div>
+      </section>
+
+      <!-- Panel Principal Derecho (8 Columnas) -->
+      <section class="lg:col-span-8 flex flex-col gap-5">
+        
+        <!-- Tarjeta Superior: Desglose de Capa Activa -->
+        <div class="border-2 border-[#00ff66] p-5 bg-[#081409]">
+          <div class="flex justify-between items-center border-b-2 border-[#00ff66] pb-2 mb-4">
+            <h2 class="text-2xl sm:text-4xl font-bold tracking-wider text-white">
+              LAYER: <span id="layer-title" class="glitch-text text-[#d4ffd4]" data-text="01 // CHIP & PROCESSING">01 // CHIP & PROCESSING</span>
+            </h2>
+            <span class="text-sm sm:text-base font-jp px-2 py-0.5 border border-[#00ff66] bg-[#030804]">
+              仕様解析
+            </span>
+          </div>
+
+          <!-- Selector de Capas Interactivo -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <button onclick="setLayer('l1')" id="btn-l1" class="tab-btn active px-3 py-1 border border-[#00ff66] text-xs font-mono uppercase">[ 01: PROCESSING ]</button>
+            <button onclick="setLayer('l2')" id="btn-l2" class="tab-btn px-3 py-1 border border-[#00ff66] text-xs font-mono uppercase">[ 02: SUB-CARRIER ]</button>
+            <button onclick="setLayer('l3')" id="btn-l3" class="tab-btn px-3 py-1 border border-[#00ff66] text-xs font-mono uppercase">[ 03: SHELL TEXTIL ]</button>
+            <button onclick="setLayer('l4')" id="btn-l4" class="tab-btn px-3 py-1 border border-[#00ff66] text-xs font-mono uppercase">[ 04: HARDWARE ]</button>
+          </div>
+
+          <div id="layer-description" class="border-t border-[#133817] pt-3 text-base sm:text-lg opacity-90 leading-relaxed space-y-1">
+            <p><strong>• ESP32 Core:</strong> Servidor local y transmisión de datos vía Wi-Fi/Bluetooth integrada.</p>
+            <p><strong>• Matriz LilyPad:</strong> Nodo textil de control lumínico cosido con trazas de hilo conductor de plata.</p>
+            <p><strong>• Aislamiento:</strong> Pistas selladas con elastómero flexible para prevenir cortocircuitos por fricción.</p>
+          </div>
+        </div>
+
+        <!-- Tarjeta Inferior: Protocolo de Fabricación -->
+        <div class="border-2 border-[#00ff66] p-5 bg-[#081409] flex-grow flex flex-col justify-between">
+          <div>
+            <div class="text-xl sm:text-2xl font-bold border-b border-[#133817] pb-2 mb-3 text-[#d4ffd4] flex justify-between">
+              <span>MANUFACTURING PIPELINE // 製造工程</span>
+              <span class="text-base font-mono opacity-60">QC_READY</span>
+            </div>
+            <ul class="space-y-2 text-base sm:text-xl font-mono">
+              <li class="flex items-start gap-2">
+                <span class="text-[#00ff66] font-bold">▶</span>
+                <span><strong>[ETAPA 01] Patronaje y Confección:</strong> Corte en algodón 280g con capucha chimenea tipo pasamontañas en talleres locales de Ecuador.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#00ff66] font-bold">▶</span>
+                <span><strong>[ETAPA 02] Integración Modular:</strong> Fijación de broches snap conductores para retirar la electrónica antes del lavado.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-[#133817] flex justify-between items-center text-xs sm:text-sm opacity-75 font-mono">
+            <span>PROTOTYPE: V1.0 STABLE</span>
+            <span class="font-jp">キト・アツンタキ生産拠点</span>
+            <span>THERMAL_ISOLATION: 3D_MESH</span>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-6 pt-4 border-t-2 sm:border-t-4 border-[#00ff66] flex justify-between items-center text-sm sm:text-lg font-mono">
+      <span>[KEY: 1-5] QUICK DIRECTORY</span>
+      <span class="text-[#00ff66]">HOST: SPRAWL_ENGINEERING // QC_PASSED</span>
+    </footer>
+  </div>
+
+  <script>
+    const layers = {
+      l1: {
+        title: "01 // CHIP & PROCESSING",
+        ascii: `+------------------------------------+\n|  [ESP32 D1] <---> [LILYPAD MATRIX] |\n|       |                 |          |\n|  [LiPo 3.7V] <---- [BUSBUS_DATA]   |\n+------------------------------------+`,
+        desc: "<p><strong>• ESP32 Core:</strong> Servidor local y transmisión de datos vía Wi-Fi/Bluetooth integrada.</p><p><strong>• Matriz LilyPad:</strong> Nodo textil de control lumínico cosido con trazas de hilo conductor de plata.</p><p><strong>• Aislamiento:</strong> Pistas selladas con elastómero flexible para prevenir cortocircuitos por fricción.</p>"
+      },
+      l2: {
+        title: "02 // SUB-CARRIER & THERMAL",
+        ascii: `+------------------------------------+\n|  [MALLA 3D]   -> DISIPACIÓN TÉRMICA |\n|  [RÚTEO BIES] -> GUÍA DE CABLEADO  |\n|  [BOLSILLO]   -> BATERÍA IGNÍFUGA  |\n+------------------------------------+`,
+        desc: "<p><strong>• Malla 3D Espaciadora:</strong> Cámara de aire que aísla el calor del circuito de la superficie de la piel.</p><p><strong>• Ruteo Interno:</strong> Canales textiles que dirigen el bus de datos hacia el bolsillo lateral.</p><p><strong>• Contención:</strong> Bolsillo ignífugo específico para estabilizar la celda LiPo.</p>"
+      },
+      l3: {
+        title: "03 // SHELL & HEAVY TEXTILE",
+        ascii: `+------------------------------------+\n|  [ALGODÓN 280G] -> CUERPO BASE     |\n|  [RIPSTOP NYLON]-> REFUERZO CAPUCHA|\n|  [MINERAL WASH] -> AZUL MEDIANOCHE |\n+------------------------------------+`,
+        desc: "<p><strong>• Algodón Perchado:</strong> Tejido de 280g de alta densidad con acabado vintage acid wash.</p><p><strong>• Paneles Ripstop:</strong> Inserciones resistentes al agua en capucha chimenea y hombros.</p><p><strong>• Corte:</strong> Patrón anatómico con capucha integrada tipo máscara ninja.</p>"
+      },
+      l4: {
+        title: "04 // FITTINGS & SNAP-BUS",
+        ascii: `+------------------------------------+\n|  [SNAPS CONDUCTORES] -> DESMONTAJE |\n|  [CIERRES YKK INV.]  -> PROTECCIÓN |\n|  [PASACABLES METAL]  -> DUMMY WIRE |\n+------------------------------------+`,
+        desc: "<p><strong>• Snaps Conducentes:</strong> Broches metálicos que transmiten energía y facilitan el desmontaje para lavado.</p><p><strong>• Cierres Invertidos YKK:</strong> Cremalleras engomadas para proteger los compartimentos del agua.</p><p><strong>• Pasacables:</strong> Ojales industriales que integran remanentes de cable de cobre por estética.</p>"
+      }
+    };
+
+    function setLayer(layerKey) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`btn-${layerKey}`).classList.add('active');
+      document.getElementById('layer-title').textContent = layers[layerKey].title;
+      document.getElementById('layer-title').setAttribute('data-text', layers[layerKey].title);
+      document.getElementById('layer-ascii').textContent = layers[layerKey].ascii;
+      document.getElementById('layer-description').innerHTML = layers[layerKey].desc;
+    }
+  </script>
+  <script src="../js/terminal.js"></script>
+</body>
+</html>

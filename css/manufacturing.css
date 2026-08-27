@@ -3,44 +3,45 @@
 @tailwind utilities;
 
 :root {
-  --cyan-bright: #e6f4ff;
-  --cyan-main: #85c2ff;
-  --cyan-glow: #429eff;
-  --bg-deep: #010408;
-  --panel-bg: #0b1e33;
-  --border-line: #1a3854;
+  --matrix-bright: #d4ffd4;
+  --matrix-main: #00ff66;
+  --matrix-dim: #00aa44;
+  --matrix-glow: #00ff66;
+  --bg-deep: #030804;
+  --panel-bg: #081409;
+  --border-line: #133817;
 }
 
 body {
   background-color: var(--bg-deep);
   font-family: 'VT323', 'DotGothic16', monospace;
   letter-spacing: 0.05em;
-  color: #e5e7eb; /* Texto base nítido para máxima legibilidad */
+  color: #e5e7eb; /* Texto base nítido y legible */
   overflow-x: hidden;
 }
 
 .font-jp { font-family: 'DotGothic16', sans-serif; }
 
-/* Contenedor con resplandor exterior nítido */
-.dossier-shell {
+/* Contenedor Principal con Brillo CRT */
+.matrix-shell {
   box-shadow: 
-    0 0 25px rgba(66, 158, 255, 0.2),
-    inset 0 0 30px rgba(66, 158, 255, 0.05);
+    0 0 25px rgba(0, 255, 102, 0.15),
+    inset 0 0 30px rgba(0, 255, 102, 0.04);
 }
 
-/* Efecto Resplandor Nítido (Sin Blur para no emborronar las letras) */
+/* Efecto Resplandor Nítido */
 .crt-glow {
   text-shadow: 
     0 0 1px #ffffff,
-    0 0 4px var(--cyan-bright),
-    0 0 10px var(--cyan-glow);
+    0 0 4px var(--matrix-bright),
+    0 0 10px var(--matrix-glow);
 }
 
-/* Scanlines CRT */
-.crt-lines {
+/* Scanlines Fijas */
+.matrix-lines {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
   background-size: 100% 4px;
   z-index: 50;
   pointer-events: none;
@@ -50,41 +51,44 @@ body {
 .crt-noise {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  background-image: radial-gradient(rgba(108, 184, 255, 0.12) 1px, transparent 0);
+  background-image: radial-gradient(rgba(0, 255, 102, 0.12) 1px, transparent 0);
   background-size: 4px 4px;
   opacity: 0.4;
   z-index: 51;
   pointer-events: none;
 }
 
-.dither-box {
-  background: 
-    repeating-radial-gradient(#03070d 0 0.0001%, #0b233a 0 0.0002%) 50% 0/2500px 2500px,
-    repeating-conic-gradient(#03070d 0 0.0001%, #0b233a 0 0.0002%) 50% 50%/2500px 2500px;
-  background-blend-mode: difference;
-}
-
-/* Navegación */
-.nav-dossier, .nav-btn {
-  color: var(--cyan-main);
+/* Navegación y Botones */
+.nav-matrix {
+  color: var(--matrix-dim);
   transition: all 0.15s ease-in-out;
   text-decoration: none;
 }
 
-.nav-dossier:hover, .nav-dossier.active-dossier,
-.nav-btn:hover, .nav-btn.active-node {
+.nav-matrix:hover, .nav-matrix.active-matrix {
   color: #ffffff;
-  text-shadow: 0 0 2px #fff, 0 0 10px #ffffff, 0 0 20px var(--cyan-glow);
+  text-shadow: 0 0 2px #fff, 0 0 10px #ffffff, 0 0 20px var(--matrix-glow);
+}
+
+.tab-btn {
+  transition: all 0.15s ease-in-out;
+}
+
+.tab-btn.active {
+  background-color: var(--matrix-main);
+  color: #000000;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
 }
 
 /* Motor de Animación Glitch Continuo */
-.glitch-text, .glitch-cyan {
+.glitch-text {
   position: relative;
   display: inline-block;
 }
 
-.glitch-text::before, .glitch-text::after,
-.glitch-cyan::before, .glitch-cyan::after {
+.glitch-text::before,
+.glitch-text::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -93,21 +97,21 @@ body {
   height: 100%;
 }
 
-.glitch-text::before, .glitch-cyan::before {
+.glitch-text::before {
   left: 2px;
-  text-shadow: -2px 0 #ff0055;
-  clip: rect(24px, 550px, 90px, 0);
-  animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
-}
-
-.glitch-text::after, .glitch-cyan::after {
-  left: -2px;
   text-shadow: -2px 0 #00ffff;
-  clip: rect(85px, 550px, 140px, 0);
-  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-matrix-1 2.5s infinite linear alternate-reverse;
 }
 
-@keyframes glitch-anim-1 {
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 #ff0055;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-matrix-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-matrix-1 {
   0% { clip: rect(10px, 9999px, 30px, 0); transform: skew(0.3deg); }
   20% { clip: rect(70px, 9999px, 90px, 0); transform: skew(-0.5deg); }
   40% { clip: rect(20px, 9999px, 50px, 0); transform: skew(0.8deg); }
@@ -116,7 +120,7 @@ body {
   100% { clip: rect(60px, 9999px, 80px, 0); transform: skew(0deg); }
 }
 
-@keyframes glitch-anim-2 {
+@keyframes glitch-matrix-2 {
   0% { clip: rect(65px, 9999px, 100px, 0); transform: skew(-0.4deg); }
   25% { clip: rect(15px, 9999px, 45px, 0); transform: skew(0.6deg); }
   50% { clip: rect(85px, 9999px, 120px, 0); transform: skew(-0.3deg); }
