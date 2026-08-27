@@ -1,2 +1,2 @@
 # Curriculum
-Landing Page para conocerme
+Just for fun
